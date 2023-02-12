@@ -1,0 +1,17 @@
+.modal {
+  color: black;
+  display: block;
+  height: 0px;
+  transition: all 1s ease-out;
+}
+
+.modal.show {
+  height: 100%;
+}
+
+.modal :deep(.badge) {
+  font-weight: normal;
+  font-size: 1rem;
+  margin-left: 5px;
+  padding: 8px 10px 5px 10px;
+}
