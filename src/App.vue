@@ -1,20 +1,42 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+
 import ControlPanel from '@/components/ControlPanel.vue'
 import ToggleAlert from '@/components/ToggleAlert.vue'
 // import DebugWindow from '@/components/DebugWindow.vue'
 
+import { useControlPanel } from '@/store/useControlPanel.js'
 import { useTimer } from '@/store/useTimer.js'
 
+const controlPanel = useControlPanel()
+const route = useRoute()
+const router = useRouter()
 const timer = useTimer()
 
 const appNameAndVersion = ref('Pomodoro Timer v.2.0.3')
 let intervalName = ref('')
 
 // Vue Lifecycles: https://vuejs.org/api/composition-api-lifecycle.html
-onMounted(() => {
+onMounted(async () => {
   // Update page title
   document.title = appNameAndVersion.value
+
+  // Note: Must wait till router is ready to retrieve query info
+  await router.isReady()
+  // console.log('[App.vue::onMounted()] route', route)
+  // console.log('[App.vue::onMounted()] route.query', route.query)
+
+  // Set default values based on query string
+  if (route.query.sound === 'off') {
+    controlPanel.state.isSoundOn = false
+  }
+  if (route.query.autonext === 'on') {
+    controlPanel.state.shouldAutostartNextInterval = true
+  }
+  if (route.query.autostart === 'on') {
+    timer.state.isTimerOn = true
+  }
 
   // Start interval that count down timer
   intervalName.value = setInterval(() => {

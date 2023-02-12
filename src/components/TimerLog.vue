@@ -53,7 +53,7 @@ export default {
   watch: {
     'timer.state.currentIntervalIndex': {
       handler: function (value) {
-        console.log('[TimerLog.vue::watch::currentIntervalIndex] value', value)
+        // console.log('[TimerLog.vue::watch::currentIntervalIndex] value', value)
 
         // Set end time
         this.log[0].endTime = (new Date()).toLocaleTimeString()
@@ -64,7 +64,7 @@ export default {
     },
     'timer.state.isTimerOn': {
       handler: function (value) {
-        console.log('[TimerLog.vue::watch::isTimerOn] value', value)
+        // console.log('[TimerLog.vue::watch::isTimerOn] value', value)
 
         if (value && this.log[0].startTime === 0) {
           // Timer is on and start time has not been set
