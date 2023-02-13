@@ -4,7 +4,7 @@ Built using Vue.js 3.2.47, Vite 4, Bootstrap 4 (cdn)
 
 <p align="center">
   <a href="https://pomodoro.ivan-lim.com" target="_blank">
-    <img src="https://github.com/ijklim/pomodoro-2023/blob/master/public/img/screenshot-990.webp" width="990px">
+    <img src="https://raw.githubusercontent.com/ijklim/pomodoro-2023/main/public/screenshot-990.webp" width="990px">
     <br>
     Live Demo
   </a>
