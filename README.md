@@ -10,6 +10,22 @@ Built using Vue.js 3.2.47, Vite 4, Bootstrap 4 (cdn)
   </a>
 </p>
 
+## Vue 2 to Vue 3 Upgrade Notes
+
+* `index.html` must be in the root folder, used to be in the `/public` folder
+
+* Different launch instructions in `/src/main.js`
+
+* Babel not required, requires Vite config file `/vite.config.js`
+
+* Example of using `<script setup>`: `/src/App.vue`
+
+  * Note: Composable variables and computed fields will be automatically exported via `const` declaration
+
+  * Note: Composable functions won't be automatically exported, destructuring required
+
+* Example of using setup Options API: `/src/components/TimerLog.vue`
+
 ## Technologies/Modules used
 
 * Vue.js
@@ -46,14 +62,6 @@ To open this app in a small window on a desktop machine, type the following into
 Note #1: Sometimes browser will skip the front **javascript:** during paste, type this in manually if necessary.
 
 Note #2: Some browsers might not support all the features if invoked this way. For example Microsoft Edge does not support window sizing.
-
-## Vue 2 to Vue 3 Upgrade Notes
-
-* `index.html` must be in the root folder, used to be in the `/public` folder
-
-* Different launch instructions in `/src/main.js`
-
-* Babel not required, require Vite config file `/vite.config.js`
 
 ## Project Setup
 
