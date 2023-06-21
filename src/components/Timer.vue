@@ -68,7 +68,7 @@ export default {
   /* Landscape or portrait screen up to 1024px */
   @media screen and (max-width: 1024px) {
     .timer {
-      font-size: 32vw;
+      font-size: 32vmin;
     }
   }
 

@@ -14,7 +14,7 @@ const route = useRoute()
 const router = useRouter()
 const timer = useTimer()
 
-const appNameAndVersion = ref('Pomodoro Timer v.2.0.3')
+const appNameAndVersion = ref('Pomodoro Timer v.2.1.0')
 let intervalName = ref('')
 
 // Vue Lifecycles: https://vuejs.org/api/composition-api-lifecycle.html
@@ -67,7 +67,8 @@ onUnmounted(() => {
 
     <RouterView />
 
-    <!-- <debug-window></debug-window> -->
+    <!-- <DebugWindow /> -->
+
     <footer>
       Proudly brought to you by <a href="https://ivan-lim.com" target="_blank">Ivan Lim</a>
     </footer>
