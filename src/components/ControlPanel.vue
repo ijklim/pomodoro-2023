@@ -13,7 +13,8 @@ const {
 </script>
 
 <template>
-  <div class='col-6 align-self-center text-right pr-0'>
+  <!-- Note: Need div wrapper for classes specified by parent to apply -->
+  <div>
     <!-- Button: Show Log -->
     <button class='btn btn-link' @click='toggleLogOpen' title='Show Log'>
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

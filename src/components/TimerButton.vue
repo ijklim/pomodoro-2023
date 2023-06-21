@@ -142,7 +142,7 @@ export default {
         svg = SVG_PLAY
       }
 
-      return (svg ? `${svg} &nbsp;${text}` : text) + this.viewportHeight;
+      return (svg ? `${svg} &nbsp;${text}` : text);
     },
   },
 }

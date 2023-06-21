@@ -14,13 +14,14 @@ const route = useRoute()
 const router = useRouter()
 const timer = useTimer()
 
-const appNameAndVersion = ref('Pomodoro Timer v.2.1.0')
+const appName = ref('Pomodoro Timer')
+const appVersion = ref('2.2.2')
 let intervalName = ref('')
 
 // Vue Lifecycles: https://vuejs.org/api/composition-api-lifecycle.html
 onMounted(async () => {
   // Update page title
-  document.title = appNameAndVersion.value
+  document.title = `${appName.value} v.${appVersion.value}`
 
   // Note: Must wait till router is ready to retrieve query info
   await router.isReady()
@@ -58,9 +59,13 @@ onUnmounted(() => {
 <template>
   <div id='app' class='container-fluid'>
     <header class='row'>
-      <h1 class='col-6 pt-2'>Pomodoro<span class='d-none d-md-inline'> Timer</span></h1>
+      <h1 class='col-sm-8 pt-2'>
+        {{ appName }}
+        <small>v.{{ appVersion }}</small>
+      </h1>
 
-      <ControlPanel />
+      <!-- Note: flex-grow-1 will allow column to take up remaining space -->
+      <ControlPanel class='align-self-center text-right pr-0 flex-grow-1' />
     </header>
 
     <ToggleAlert />
@@ -76,8 +81,6 @@ onUnmounted(() => {
 </template>
 
 <style>
-@import 'https://fonts.googleapis.com/css?family=Contrail+One';
-
 :root {
   --color-background: #111;
   --color-background-light: #222;
@@ -121,5 +124,16 @@ footer {
 
 a:hover {
   text-decoration: none;
+}
+
+h1 {
+  /* Dynamically adjust font based on screen width */
+  font-size: clamp(2.0rem, 4cqi, 2.5rem);
+}
+
+small {
+  /* Font size base on parent's font size */
+  font-size: 50%;
+  font-style: italic;
 }
 </style>
