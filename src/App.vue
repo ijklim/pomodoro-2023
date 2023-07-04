@@ -2,10 +2,11 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
-import ControlPanel from '@/components/ControlPanel.vue'
+import AppHeader from '@/components/AppHeader/index.vue';
 import ToggleAlert from '@/components/ToggleAlert.vue'
 // import DebugWindow from '@/components/DebugWindow.vue'
 
+import { name, version } from '@/store/constants.js';
 import { useControlPanel } from '@/store/useControlPanel.js'
 import { useTimer } from '@/store/useTimer.js'
 
@@ -14,14 +15,12 @@ const route = useRoute()
 const router = useRouter()
 const timer = useTimer()
 
-const appName = ref('Pomodoro Timer')
-const appVersion = ref('2.2.2')
 let intervalName = ref('')
 
 // Vue Lifecycles: https://vuejs.org/api/composition-api-lifecycle.html
 onMounted(async () => {
   // Update page title
-  document.title = `${appName.value} v.${appVersion.value}`
+  document.title = `${name} v.${version}`
 
   // Note: Must wait till router is ready to retrieve query info
   await router.isReady()
@@ -58,15 +57,7 @@ onUnmounted(() => {
 
 <template>
   <div id='app' class='container-fluid'>
-    <header class='row'>
-      <h1 class='col-sm-8 pt-2'>
-        {{ appName }}
-        <small>v.{{ appVersion }}</small>
-      </h1>
-
-      <!-- Note: flex-grow-1 will allow column to take up remaining space -->
-      <ControlPanel class='align-self-center text-right pr-0 flex-grow-1' />
-    </header>
+    <AppHeader />
 
     <ToggleAlert />
 
