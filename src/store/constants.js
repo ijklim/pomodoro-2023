@@ -1,4 +1,4 @@
 // === App Specific Info ===
-export const name = 'Pomodoro Timer';
+export const appName = 'Pomodoro Timer';
 
-export const version = '2.3.3';
+export const appVersion = '2.4.1';

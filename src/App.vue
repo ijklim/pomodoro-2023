@@ -2,11 +2,11 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
+import AppFooter from '@/components/AppFooter/index.vue';
 import AppHeader from '@/components/AppHeader/index.vue';
 import ToggleAlert from '@/components/ToggleAlert.vue'
 // import DebugWindow from '@/components/DebugWindow.vue'
 
-import { name, version } from '@/store/constants.js';
 import { useControlPanel } from '@/store/useControlPanel.js'
 import { useTimer } from '@/store/useTimer.js'
 
@@ -19,9 +19,6 @@ let intervalName = ref('')
 
 // Vue Lifecycles: https://vuejs.org/api/composition-api-lifecycle.html
 onMounted(async () => {
-  // Update page title
-  document.title = `${name} v.${version}`
-
   // Note: Must wait till router is ready to retrieve query info
   await router.isReady()
   // console.log('[App.vue::onMounted()] route', route)
@@ -65,9 +62,7 @@ onUnmounted(() => {
 
     <!-- <DebugWindow /> -->
 
-    <footer>
-      Proudly brought to you by <a href="https://ivan-lim.com" target="_blank">Ivan Lim</a>
-    </footer>
+    <AppFooter />
   </div>
 </template>
 

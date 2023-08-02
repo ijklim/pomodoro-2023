@@ -1,0 +1,49 @@
+# Forbid directory viewing
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+
+  # Redirects http to https
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Redirect to index.html after turning on History mode
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# http://www.prestashop.com/forums/topic/74847-solved-how-to-enable-gzip-with-godaddy/
+<IfModule mod_deflate.c>
+<IfModule mod_filter.c>
+  AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript
+</IfModule>
+</IfModule>
+
+# BEGIN Cache-Control Headers
+# https://wordpress.org/support/topic/plugin-wp-super-cache-adding-max-age-for-imagescss
+# 86400 = 1 day, 604800 = 1 week, 31449600 = 1 year
+<ifmodule mod_headers.c>
+  <filesmatch "\.(php)$">
+    Header set Cache-Control "max-age=1"
+  </filesmatch>
+  <filesmatch "\.(css)$">
+    Header set Cache-Control "max-age=1"
+  </filesmatch>
+  <filesmatch "\.(xml|ini|html|htm|js)$">
+    Header set Cache-Control "max-age=86400"
+  </filesmatch>
+  <filesmatch "\.(eot)$">
+    Header set Cache-Control "max-age=31449600"
+  </filesmatch>
+</ifmodule>
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “alt-php74” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-alt-php74 .php .php7 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
