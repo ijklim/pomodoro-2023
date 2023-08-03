@@ -1,0 +1,3 @@
+[submodule "src/components/VueAds"]
+	path = src/components/VueAds
+	url = https://github.com/ijklim/vue-ads.git

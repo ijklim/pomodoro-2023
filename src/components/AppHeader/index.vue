@@ -17,6 +17,12 @@
 </template>
 
 <style scoped>
+  header {
+    position: sticky;
+    top: 0px;
+    z-index: 100;
+  }
+
   h1 {
     /* Dynamically adjust font based on screen width */
     font-size: clamp(1.5rem, 3cqi, 3rem);

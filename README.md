@@ -80,3 +80,10 @@ npm run dev
 ```sh
 npm run build
 ```
+
+## Adding VueAds submodule
+
+```sh
+# The destination folder (e.g. src/components/VueAds) must NOT exist before running the command
+git submodule add https://github.com/ijklim/vue-ads.git src/components/VueAds
+```

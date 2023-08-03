@@ -1,6 +1,6 @@
 <script setup>
-  import GoogleAdSense from '@/components/ads/GoogleAdSense.vue';
   import Timer from '@/components/Timer.vue';
+  import VueAdsRandom from '@/components/VueAds/Random.vue';
 </script>
 
 <template>
@@ -9,13 +9,11 @@
     <Timer />
   </div>
 
-  <!-- === Google AdSense ad === -->
-  <div class="row align-items-center justify-content-center mt-5">
-    <GoogleAdSense
-      adFormat="fluid"
-      adLayoutKey="-fb+5w+4e-db+86"
-      :adSlot="7471404401"
-    />
+  <!-- === Random Advertisement === -->
+  <div class="row pt-5">
+    <div class="col-12 text-center">
+      <VueAdsRandom />
+    </div>
   </div>
 </template>
 
@@ -23,10 +21,5 @@
 <style scoped>
 .content {
   min-height: calc(60vh);
-}
-
-.adsbygoogle {
-  min-width: 250px;
-  width: 80vw;
 }
 </style>
