@@ -4,6 +4,7 @@
   "author": "Ivan Lim <aimprove@gmail.com>",
   "scripts": {
     "dev": "vite",
+    "devo": "vite --open",
     "build": "vite build",
     "preview": "vite preview"
   },
